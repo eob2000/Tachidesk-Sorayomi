@@ -5,6 +5,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import 'dart:async';
+import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -335,6 +336,13 @@ class ReaderWrapper extends HookConsumerWidget {
       child: Scaffold(
         appBar: visibility.value
             ? AppBar(
+                leading: !Platform.isAndroid && !Platform.isIOS && context.canPop()
+                    ? IconButton(
+                        icon: const Icon(Icons.arrow_back),
+                        onPressed: context.pop,
+                      )
+                    : null,
+                automaticallyImplyLeading: Platform.isAndroid || Platform.isIOS,
                 title: ListTile(
                   title: (manga.title).isNotBlank
                       ? Text(
