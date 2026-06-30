@@ -96,6 +96,12 @@ flutter_native_splash:
     image: assets/icons/dark_icon.png
     image_dark: assets/icons/light_icon.png
 
+dependency_overrides:
+  flutter_gen_runner: 5.9.0
+  flutter_gen_core: 5.9.0
+  go_router_builder: 2.7.5
+  font_awesome_flutter: 11.0.0
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
